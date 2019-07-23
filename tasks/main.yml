@@ -1,0 +1,17 @@
+---
+# tasks file for cockpit
+
+- name: Install Cockpit
+  dnf:
+    name:
+      - cockpit
+      - cockpit-machines
+    state: present
+  become: yes
+
+- name: Start and enable Cockpit
+  service:
+    name: cockpit
+    state: started
+    enabled: yes
+  become: yes
